@@ -1,0 +1,194 @@
+/* src/pages/LoginPage.css
+   PURE Black & White Version — No red, no colors, no tint, no color animations
+*/
+
+.login-page {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  padding: 40px 0;
+  color: var(--text-primary);
+}
+
+/* Center container */
+.login-container {
+  max-width: 420px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* -----------------------------
+   LOGIN CARD (solid & clean)
+------------------------------ */
+
+.login-card {
+  padding: 32px;
+  background: rgba(0,0,0,0.88);
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.08);
+}
+
+/* TITLE + SUBTITLE */
+.login-title {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: #cccccc;
+  margin-bottom: 25px;
+  font-size: 0.95rem;
+}
+
+/* -----------------------------
+      FORM FIELDS
+------------------------------ */
+
+.login-form {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #ffffff;
+}
+
+/* PURE INPUTS */
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  background-color: rgba(0,0,0,0.95);
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+/* Placeholder (light gray) */
+.form-group input::placeholder {
+  color: #aaaaaa;
+}
+
+/* FOCUS */
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #ffffff;
+}
+
+/* -----------------------------
+    PURE BLACK DROPDOWN (UPDATED)
+------------------------------ */
+
+.form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  background-color: #000000; /* PURE BLACK */
+  color: #ffffff;
+  font-size: 0.95rem;
+
+  appearance: none;            /* Remove default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Custom white arrow */
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 14px;
+}
+
+/* Dropdown menu items */
+.form-group select option {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* -----------------------------
+      BUTTON
+------------------------------ */
+
+.login-button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  border: 2px solid #ffffff;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.login-button:hover {
+  background: #111111;
+}
+
+/* Disabled */
+.login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* -----------------------------
+      ERROR MESSAGE (B&W)
+------------------------------ */
+
+.error-message {
+  background-color: rgba(255,255,255,0.05);
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  border-left: 4px solid #ffffff;
+  font-size: 0.9rem;
+}
+
+/* -----------------------------
+      INFO BOX
+------------------------------ */
+
+.login-info {
+  background-color: rgba(255,255,255,0.05);
+  padding: 14px;
+  border-radius: 6px;
+  border: 1px solid #ffffff;
+  font-size: 0.9rem;
+  color: #cccccc;
+  margin-top: 16px;
+}
+
+.login-info h4 {
+  margin-bottom: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* -----------------------------
+      RESPONSIVE
+------------------------------ */
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 22px;
+  }
+  .login-title {
+    font-size: 1rem;
+  }
+}

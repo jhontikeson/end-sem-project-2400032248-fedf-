@@ -1,0 +1,145 @@
+/* src/pages/GoalsPage.css */
+.goals-page {
+  padding: 20px 0;
+}
+
+.goals-header {
+  margin-bottom: 30px;
+}
+
+.goals-header h1 {
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.goal-form-card h3 {
+  margin-bottom: 20px;
+  color: var(--accent-color);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.goals-section {
+  margin-bottom: 40px;
+}
+
+.goals-section h2 {
+  margin-bottom: 20px;
+  color: var(--accent-color);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-secondary);
+}
+
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.goal-card {
+  transition: transform 0.3s;
+}
+
+.goal-card:hover {
+  transform: translateY(-5px);
+}
+
+.goal-card.completed {
+  opacity: 0.7;
+  background-color: var(--bg-secondary);
+}
+
+.goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.goal-category {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-icon {
+  font-size: 1.5rem;
+}
+
+.category-name {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.goal-card h3 {
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.goal-date {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.completed-badge {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .goal-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}

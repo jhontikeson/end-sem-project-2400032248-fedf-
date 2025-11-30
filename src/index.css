@@ -1,0 +1,243 @@
+/* Fullscreen intro */
+.intro-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: introFadeOut 1s ease-out 8s forwards; /* fade out at end */
+}
+
+/* GIF fills entire screen + zoom in */
+.intro-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(140%);
+
+  animation: introZoom 2.5s ease-out forwards;
+}
+
+/* Cinematic dark overlay */
+.intro-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  animation: introPulse 2.5s ease-out infinite;
+}
+
+/* Retro scanline effect */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.05) 0px,
+    rgba(255,255,255,0.02) 2px,
+    transparent 4px
+  );
+  mix-blend-mode: overlay;
+  animation: scanlineMove 0.2s linear infinite;
+}
+
+/* Animations */
+
+@keyframes introZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+
+@keyframes introPulse {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.45; }
+  100% { opacity: 0.3; }
+}
+
+@keyframes scanlineMove {
+  from { background-position-y: 0; }
+  to { background-position-y: 4px; }
+}
+
+@keyframes introFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; visibility: hidden; }
+}
+
+:root {
+  /* Background image setup */
+  --bg-image: url('https://i.pinimg.com/originals/eb/7f/0c/eb7f0ccf927c93aeedbb3cf100d6fd29.gif'); /* Replace with your online image URL */
+  --bg-image-size: contain;                /* Ensure entire image fits */
+  --bg-image-position: center;             /* Center image */
+  --bg-image-repeat: no-repeat;            /* Do not repeat image */
+
+  /* Colors */
+  --text-primary: #ffffff;      /* White text */
+  --text-secondary: #ffffff;    
+  --border-color: #ffffff;      
+  --accent-color: #ffffff;      
+  --shadow: 0 4px 10px rgba(255,255,255,0.1);
+  --shadow-hover: 0 6px 15px rgba(255,255,255,0.2);
+}
+
+/* ---------- Base Styles ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Press Start 2P", monospace;
+  background-color: #000;                        /* fallback black */
+  background-image: var(--bg-image);
+  background-size: var(--bg-image-size);
+  background-position: var(--bg-image-position);
+  background-repeat: var(--bg-image-repeat);
+  background-attachment: fixed;                  /* Optional: stays in place */
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ---------- Utility Classes ---------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }
+
+/* ---------- Cards ---------- */
+.card {
+  background: rgba(0,0,0,0.6);  /* semi-transparent so image shows */
+  padding: 1.5rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+/* ---------- Buttons ---------- */
+button,
+.btn {
+  background: rgba(0,0,0,0.7);    /* semi-transparent black */
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  padding: 0.7rem 1.5rem;
+  cursor: pointer;
+  font-family: "Press Start 2P", monospace;
+  border-radius: 6px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+button:hover,
+.btn:hover {
+  background: rgba(0,0,0,0.85);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- Grid Layout ---------- */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ---------- Focus & Accessibility ---------- */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-primary);
+  border: 2px solid var(--border-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}
+
+/* ---------- Optional Overlay ---------- */
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2); /* optional darken overlay */
+  pointer-events: none;
+  z-index: -1;
+}

@@ -1,0 +1,51 @@
+/* src/components/features/LessonCard.css */
+.lesson-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.lesson-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.lesson-header h3 {
+  color: var(--accent-color);
+  margin: 0;
+  flex: 1;
+}
+
+.completed-badge {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.lesson-description {
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: 15px;
+}
+
+.lesson-content {
+  flex: 1;
+  margin-bottom: 15px;
+}
+
+.lesson-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.lesson-duration {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
